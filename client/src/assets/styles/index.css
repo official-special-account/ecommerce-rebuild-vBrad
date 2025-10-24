@@ -1,0 +1,145 @@
+.body-colour {
+  background-color: rgb(255, 255, 255);
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.5; /* Start slightly visible */
+  }
+  50% {
+    opacity: 1; /* Become fully visible */
+  }
+  100% {
+    opacity: 0.5; /* Fade back to slightly visible */
+  }
+}
+
+main {
+  min-height: 80vh;
+}
+
+.rating span {
+  margin: 0.1rem;
+}
+
+.rating svg {
+  /* color: #f8e825; */
+  color: #a0787c;
+}
+
+.rating-text {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding-left: 0.5rem;
+}
+
+.product-title {
+  height: 2.5em; /* Set a fixed height */
+  overflow: hidden; /* Hide overflow content */
+  text-overflow: ellipsis; /* Add ellipsis for long text */
+  white-space: nowrap; /* Prevent wrapping */
+}
+
+table td,
+table th {
+  text-align: center;
+}
+
+.review {
+  margin-top: 30px;
+}
+
+.review h2 {
+  font-size: 24px;
+  background: #f4f4f4;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.review button {
+  margin-top: 10px;
+}
+
+.carousel-caption {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.checkOutStepsFont {
+  font-size: small;
+  /* text-decoration: underline; */
+}
+
+.fitObject {
+  aspect-ratio: 5/4;
+  object-fit: contain;
+}
+
+.carousel {
+  /* background-color: rgb(180, 180, 180) !important; */
+  background-image: linear-gradient(300deg, grey, white) !important;
+}
+
+/* .link-text {
+  color: white;
+} */
+
+.sm-text {
+  font-size: small;
+}
+
+.md-text {
+  font-size: medium;
+}
+
+.category-container button {
+  border-radius: 25px;
+  border: 1px solid #a0787c;
+  color: white;
+  padding: 5px 10px;
+  background-color: #a0787c;
+  margin-bottom: 10px;
+  margin-right: 5px;
+}
+
+.category-container button:hover {
+  background-color: white;
+  color: #a0787c;
+  border: 1px solid #a0787c;
+}
+
+.bs {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 10px 20px;
+  background-color: #fde6e8ff;
+}
+
+.card-strip {
+  border-radius: 5px;
+  margin-bottom: 8px;
+  background-color: #fde6e8ff;
+  padding: 10px;
+  /* box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px; */
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.text-bg-colour {
+  border-radius: 5px;
+  margin-bottom: 5px;
+  /* background-color: rgb(255, 246, 247); */
+  background-color: rgb(241, 247, 255);
+  padding: 10px;
+}
+
+.test-credentials * {
+  font-size: small;
+}
+
+.twinkling-element {
+  animation: twinkle 2s ease-in-out infinite alternate;
+}
