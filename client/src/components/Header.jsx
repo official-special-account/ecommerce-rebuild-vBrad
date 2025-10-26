@@ -23,7 +23,7 @@ const Header = () => {
       await logoutApiCall().unwrap();
       dispatch(logout());
       dispatch(clearCartItems());
-      navigate("/login");
+      navigate("/auth");
     } catch (err) {
       console.log(err);
     }
@@ -60,7 +60,7 @@ const Header = () => {
                   </NavDropdown.Item>
                 </NavDropdown>
               ) : (
-                <Nav.Link as={Link} to="/login">
+                <Nav.Link as={Link} to="/auth">
                   <FaUser /> Sign In
                 </Nav.Link>
               )}

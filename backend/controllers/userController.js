@@ -144,7 +144,13 @@ const getUsers = asyncHandler(async (req, res) => {
 // @access          Private/Admin
 // asyncHandler:    allows us to avoid using try/catch block for async functions (async functions returns a promise).
 const getUserById = asyncHandler(async (req, res) => {
-  res.send("get user by Id");
+  const user = await User.findById(req.params.id);
+
+  if (user) {
+    res.status(200).json(user);
+  } else {
+    throw new Error("User not found");
+  }
 });
 
 // NOTE:

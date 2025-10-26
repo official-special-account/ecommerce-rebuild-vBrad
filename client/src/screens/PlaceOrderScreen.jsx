@@ -37,10 +37,9 @@ const PlaceOrderScreen = () => {
         totalPrice: cart.totalPrice,
       });
 
-      console.log(res);
-
       dispatch(clearCartItems());
-      navigate(`/order/${res._id}`); // cannot get orderId because order is not created, due to failed userId at backend
+
+      navigate(`/order/${res.data._id}`);
     } catch (error) {
       toast.error(error);
     }

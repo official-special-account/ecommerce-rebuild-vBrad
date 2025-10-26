@@ -18,8 +18,6 @@ const addOrderItems = asyncHandler(async (req, res) => {
     totalPrice,
   } = req.body;
 
-  console.log(req.user);
-
   if (orderItems && orderItems.length === 0) {
     res.status(400);
     throw new Error("No order items");
@@ -30,7 +28,7 @@ const addOrderItems = asyncHandler(async (req, res) => {
         product: orderItem._id,
         _id: undefined,
       })),
-      user: req.user._id, // identified as the problem area
+      user: req.user._id,
       shippingAddress,
       paymentMethod,
       itemsPrice,
@@ -39,7 +37,7 @@ const addOrderItems = asyncHandler(async (req, res) => {
       totalPrice,
     });
 
-    const createdOrder = order.save();
+    const createdOrder = await order.save();
 
     res.status(201).json(createdOrder);
   }
@@ -61,7 +59,7 @@ const getMyOrders = asyncHandler(async (req, res) => {
 // @access          Private
 // asyncHandler:    allows us to avoid using try/catch block for async functions (async functions returns a promise).
 const getOrderById = asyncHandler(async (req, res) => {
-  const order = await Order.findById(req.param.id).populate(
+  const order = await Order.findById(req.params.id).populate(
     "user",
     "name email"
   );
