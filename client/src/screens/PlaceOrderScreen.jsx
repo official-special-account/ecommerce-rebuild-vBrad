@@ -49,7 +49,7 @@ const PlaceOrderScreen = () => {
     <>
       <CheckOutSteps step1 step2 step3 step4 />
       <Row>
-        <Col md={7}>
+        <Col md={8}>
           <ListGroup variant="flush">
             <ListGroup.Item>
               <h2>Shipping</h2>
