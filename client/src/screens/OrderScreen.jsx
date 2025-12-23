@@ -60,12 +60,43 @@ const OrderScreen = () => {
         }
       }
     }
-  }, [order, paypal, errorPayPal, loadingPayPal, paypalDispatch]);
+  }, [order, paypal, paypalDispatch, loadingPayPal, errorPayPal]);
 
-  function onApprove() {}
-  function onApproveTest() {}
-  function onError() {}
-  function createOrder() {}
+  async function onApproveTest() {
+    await payOrder({ orderId, details: { payer: {} } });
+    refetch();
+    toast.success("Payment Successful");
+  }
+
+  function onApprove(data, actions) {
+    return actions.order.capture().then(async function (details) {
+      try {
+        await payOrder({ orderId, details });
+        refetch();
+        toast.success("Payment Successful");
+      } catch (err) {
+        toast.error(err?.data?.message || err.message);
+      }
+    });
+  }
+
+  function onError(err) {
+    toast.error(err.message);
+  }
+
+  function createOrder(data, actions) {
+    return actions.order
+      .create({
+        purchase_units: {
+          amount: {
+            value: order.totalPrice,
+          },
+        },
+      })
+      .then((orderId) => {
+        return orderId;
+      });
+  }
 
   console.log(order);
 
@@ -187,6 +218,7 @@ const OrderScreen = () => {
 
                       <div>
                         <PayPalButtons
+                          disabled={false}
                           createOrder={createOrder}
                           onApprove={onApprove}
                           onError={onError}
