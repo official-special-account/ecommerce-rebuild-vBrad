@@ -64,6 +64,22 @@ const Header = () => {
                   <FaUser /> Sign In
                 </Nav.Link>
               )}
+
+              {userInfo && userInfo.isAdmin && (
+                <NavDropdown title="Admin" id="admin-menu">
+                  <NavDropdown.Item as={Link} to="/admin/orderlist">
+                    Orders
+                  </NavDropdown.Item>
+
+                  <NavDropdown.Item as={Link} to="/admin/users">
+                    Users
+                  </NavDropdown.Item>
+
+                  <NavDropdown.Item as={Link} to="/admin/productlist">
+                    Products
+                  </NavDropdown.Item>
+                </NavDropdown>
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>
