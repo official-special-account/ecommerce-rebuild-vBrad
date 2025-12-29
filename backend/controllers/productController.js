@@ -31,6 +31,29 @@ const getProductById = asyncHandler(async (req, res) => {
 });
 
 // NOTE:
+// @desc            create products
+// @route           POST /api/products
+// @access          Public/Admin
+// asyncHandler:    allows us to avoid using try/catch block for async functions (async functions returns a promise).
+const createProduct = asyncHandler(async (req, res) => {
+  const product = new Product({
+    name: "Sample product",
+    price: 0,
+    user: req.user._id,
+    image: "/images/sample.jpg",
+    brand: "Sample brand",
+    category: "Sample category",
+    countInStock: 0,
+    numReviews: 0,
+    description: "Sample description",
+  });
+
+  const createdProduct = await product.save();
+
+  res.status(201).json(createdProduct);
+});
+
+// NOTE:
 // @desc            delete product
 // @route           GET /api/products/:id
 // @access          Admin/Private
@@ -47,4 +70,4 @@ const deleteProduct = asyncHandler(async (req, res) => {
   }
 });
 
-export { getProducts, getProductById, deleteProduct };
+export { getProducts, getProductById, deleteProduct, createProduct };
