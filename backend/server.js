@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Cookie parser midddleware
-app.use(cookieParser());
+app.use(cookieParser()); // accessing cookie from the req object
 
 app.get("/", (req, res) => {
   res.send("API is running...");
