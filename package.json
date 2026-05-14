@@ -26,5 +26,8 @@
     "concurrently": "^9.1.2",
     "dotenv": "^16.4.7",
     "nodemon": "^3.1.9"
+  },
+  "engines": {
+    "node": "^23.11.1"
   }
 }
